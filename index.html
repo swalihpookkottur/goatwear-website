@@ -136,6 +136,52 @@
     .watermark{
       position:absolute; right:8px; top:30px; opacity:0.05; font-size:220px; font-family:"Bebas Neue"; color:var(--white); pointer-events:none; user-select:none;
     }
+/* ===== PRO GLOW EFFECTS ===== */
+button, .btn, a.button {
+  background: #00ff7f;
+  color: #000;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 12px rgba(0, 255, 127, 0.4);
+}
+
+button:hover, .btn:hover, a.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 255, 127, 0.8);
+}
+
+/* ===== FADE-IN ANIMATION ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+header, h1, h2, p, button {
+  animation: fadeIn 1.2s ease forwards;
+}
+
+/* ===== LOGO GLOW ===== */
+#logoImg {
+  filter: drop-shadow(0 0 10px rgba(0,255,127,0.7));
+  transition: 0.3s;
+}
+#logoImg:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 20px rgba(0,255,127,1));
+}
+
+/* ===== SECTION STYLE ===== */
+section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  color: #fff;
+}
 
   </style>
 </head>
