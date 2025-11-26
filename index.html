@@ -4,378 +4,202 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>go.atwear — Built from ego</title>
-  <!-- ===== GO.ATWEAR SEO + SOCIAL META ===== -->
-<meta name="title" content="go.atwear — Built from ego">
-<meta name="description" content="go.atwear brings bold streetwear to those who lead — not follow. Minimal design, loud attitude. Built from ego.">
-<meta name="keywords" content="go.at, streetwear, men's fashion, bold clothing, ego wear, premium t-shirts">
-<meta name="author" content="go.atwear">
-<meta name="theme-color" content="#00FF7F">
 
-<!-- Open Graph (Instagram / Facebook Preview) -->
-<meta property="og:title" content="go.atwear — Built from ego">
-<meta property="og:description" content="Boost your ego. Rule the game. Minimal. Bold. Confident.">
-<meta property="og:image" content="https://swalihpookkottur.github.io/goatwear-website/assets/logo.png">
-<meta property="og:url" content="https://swalihpookkottur.github.io/goatwear-website/">
-<meta property="og:type" content="website">
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="go.atwear — Built from ego">
-<meta name="twitter:description" content="Minimal. Bold. Loud attitude. Built from ego.">
-<meta name="twitter:image" content="https://swalihpookkottur.github.io/goatwear-website/assets/logo.png">
-
-  <meta name="description" content="go.atwear - Men's streetwear. Built from ego. Bold streetwear for those who lead, not follow." />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Favicon (put your file at assets/favicon.png) -->
-  <link rel="icon" href="assets/favicon.png" />
+  <meta name="description" content="go.atwear — streetwear. Built from ego. Minimal. Bold." />
 
   <style>
     :root{
-      --bg:#070707;
-      --panel:#0e0e0e;
-      --accent:#00ff7f; /* neon green */
-      --muted:#bfbfbf;
-      --white:#ffffff;
+      --bg:#0b0b0b;
+      --panel:#0f0f0f;
+      --neon:#00ff77; /* neon green */
+      --muted:#cfcfcf;
+      --accent:rgba(0,255,119,0.08);
       --radius:12px;
-      --container:1100px;
+      --max:1200px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family:"Poppins",system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background:linear-gradient(180deg,#060606 0%, #0b0b0b 100%);
-      color:var(--white);
+      font-family:'Poppins',system-ui,Arial,sans-serif;
+      background:linear-gradient(180deg,#060606 0%, #0b0b0b 60%);
+      color:var(--muted);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
-
-    a { color: var(--accent); text-decoration: none; }
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px}
     header{
-      position:sticky; top:0; z-index:40;
-      background:linear-gradient(180deg, rgba(0,0,0,0.65), rgba(0,0,0,0.35));
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid rgba(255,255,255,0.02);
+      display:flex;align-items:center;justify-content:space-between;padding:10px 0;
     }
-    .nav{
-      max-width:var(--container); margin:0 auto; padding:14px 20px;
-      display:flex; align-items:center; justify-content:space-between;
-    }
-    .brand{
-      display:flex; align-items:center; gap:14px;
-    }
-    .brand img{height:44px; width:44px; object-fit:contain; border-radius:6px}
-    .brand h1{font-family:"Bebas Neue",sans-serif; font-size:22px; margin:0; letter-spacing:1px; color:var(--white)}
-    nav ul{display:flex; gap:18px; list-style:none; margin:0; padding:0; align-items:center}
-    nav a{color:var(--muted); font-weight:600; font-size:14px}
-    .cta{background:var(--accent); color:#000; padding:8px 14px; border-radius:8px; font-weight:700}
-    .container{max-width:var(--container); margin:0 auto; padding:36px 20px}
-
-    /* Hero */
-    .hero{
-      display:flex; gap:40px; align-items:center; justify-content:space-between;
-      padding:48px 0;
-    }
-    .hero-left{flex:1; min-width:280px}
-    .hero-right{flex:1; display:flex; align-items:center; justify-content:center}
-    .hero h2{
-      font-family:"Bebas Neue"; font-size:52px; margin:0 0 10px; line-height:0.9; color:var(--white)
-    }
-    .hero p{color:var(--muted); font-size:16px; margin:0 0 22px; max-width:620px}
-    .btns{display:flex; gap:12px; align-items:center}
-    .btn{
-      padding:12px 18px; border-radius:10px; font-weight:700; cursor:pointer; border:0;
-      background:transparent; color:var(--white); border:1px solid rgba(255,255,255,0.06)
-    }
-    .btn.primary{background:var(--accent); color:#000; border:0}
-
-    /* Feature grid */
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:28px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px; border-radius:10px; border:1px solid rgba(255,255,255,0.02)}
-    .card h3{margin:0 0 8px; font-size:16px}
-    .card p{margin:0; color:var(--muted); font-size:14px}
-
-    /* Quotes / Ego section */
-    .ego-list{margin-top:34px; display:grid; gap:14px}
-    .ego-item{
-      background:linear-gradient(90deg, rgba(0,0,0,0.35), rgba(0,0,0,0.2));
-      padding:22px; border-radius:10px; display:flex; align-items:center; gap:16px; border:1px solid rgba(255,255,255,0.02)
-    }
-    .ego-item .num{width:54px; height:54px; background:rgba(0,0,0,0.45); border-radius:10px; display:grid; place-items:center; font-weight:700; color:var(--accent); font-size:20px}
-    .ego-item p{margin:0; color:var(--white); font-weight:600; font-size:16px}
-
-    /* About & contact */
-    .about{display:flex; gap:36px; align-items:center; margin-top:38px}
-    .about .text{flex:1}
-    .about .art{width:320px; height:220px; border-radius:10px; background:linear-gradient(135deg,var(--panel), rgba(0,0,0,0.2)); display:grid; place-items:center}
-    .about p{color:var(--muted); line-height:1.6}
-
-    footer{margin-top:48px; padding:30px 0; border-top:1px solid rgba(255,255,255,0.02)}
-    .foot-inner{max-width:var(--container); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:0 20px}
-    .socials{display:flex; gap:12px; align-items:center}
-    .small{color:var(--muted); font-size:13px}
-
-    /* Responsive */
-    @media (max-width:900px){
-      .grid{grid-template-columns:repeat(2,1fr)}
-      .hero{flex-direction:column-reverse; text-align:center}
-      .hero-right{order:-1}
-      .hero h2{font-size:42px}
-      nav ul{display:none}
-    }
-    @media (max-width:560px){
-      .grid{grid-template-columns:1fr}
-      .ego-item{padding:16px}
-      .hero h2{font-size:34px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{height:46px;width:46px;object-fit:contain;cursor:pointer}
+    .brand .title{font-weight:800;color:#fff;letter-spacing:1px}
+    nav{display:flex;gap:22px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 6px;border-radius:6px;font-weight:500}
+    nav a:hover{color:#fff;background:rgba(255,255,255,0.02)}
+    .btn-shop{
+      background:var(--neon);color:#061006;padding:8px 16px;border-radius:10px;font-weight:700;border:none;cursor:pointer;
+      box-shadow:0 6px 18px rgba(0,255,119,0.08)
     }
 
-    /* subtle watermark logo in background for sections */
-    .watermark{
-      position:absolute; right:8px; top:30px; opacity:0.05; font-size:220px; font-family:"Bebas Neue"; color:var(--white); pointer-events:none; user-select:none;
+    /* hero */
+    .hero{display:flex;gap:36px;align-items:center;padding:56px 0}
+    .hero-left{flex:1;min-width:260px}
+    .kicker{color:var(--neon);font-weight:700;margin-bottom:8px}
+    h1{margin:0;font-size:48px;line-height:1;letter-spacing:1px;color:#fff;font-weight:800}
+    p.lead{color:#cfcfcf;opacity:0.9;margin-top:14px;max-width:720px}
+
+    .cta{display:flex;gap:14px;margin-top:22px}
+    .btn{background:#0b0b0b;border:1px solid rgba(255,255,255,0.03);padding:12px 20px;border-radius:12px;color:#fff;font-weight:600;cursor:pointer}
+    .btn-outline{background:transparent;border:1px solid rgba(0,255,119,0.18);color:var(--neon)}
+    .btn-green{background:linear-gradient(90deg,var(--neon),#24ff9b);color:#061006;padding:12px 20px;border-radius:12px;border:none;font-weight:700}
+
+    /* features + big logo */
+    .hero-right{width:360px;display:flex;justify-content:center}
+    .logo-card{background:linear-gradient(180deg,#0b0b0b,#0f0f0f);border-radius:16px;padding:24px;width:320px;height:320px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,0.6)}
+    .logo-card img{max-width:240px;max-height:240px;object-fit:contain}
+
+    .grid-feat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;color:#ddd}
+    .card h4{margin:0 0 8px 0;color:#fff}
+    .card p{margin:0;font-size:14px;color:#cfcfcf;opacity:0.9}
+
+    /* collection preview */
+    .collection-preview{margin-top:42px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+    .product{background:linear-gradient(180deg,#0c0c0c,#070707);border-radius:12px;padding:12px;display:flex;flex-direction:column;align-items:center}
+    .product img{width:100%;border-radius:8px;object-fit:cover;height:160px}
+    .product h5{margin:10px 0 0 0;color:#fff;font-size:16px}
+
+    footer{margin:40px 0 80px;color:#999;text-align:center;font-size:14px;padding-bottom:50px}
+
+    /* contact */
+    #contact{margin-top:48px;padding:28px;background:rgba(0,0,0,0.2);border-radius:12px}
+    #contact h3{color:#fff;margin:0 0 12px 0}
+    form{display:flex;flex-direction:column;gap:12px;max-width:640px}
+    input,textarea{background:#0b0b0b;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:8px;color:#fff}
+    input::placeholder,textarea::placeholder{color:#9b9b9b}
+    .note{font-size:13px;color:#a9a9a9}
+
+    /* responsive */
+    @media (max-width:920px){
+      .hero{flex-direction:column-reverse}
+      .hero-right{width:100%}
+      .grid-feat{grid-template-columns:repeat(1,1fr)}
+      .wrap{padding:18px}
+      h1{font-size:36px}
+      .logo-card{width:240px;height:240px}
     }
-/* ===== PRO GLOW EFFECTS ===== */
-button, .btn, a.button {
-  background: #00ff7f;
-  color: #000;
-  border: none;
-  padding: 10px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  box-shadow: 0 0 12px rgba(0, 255, 127, 0.4);
-}
-
-button:hover, .btn:hover, a.button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(0, 255, 127, 0.8);
-}
-
-/* ===== FADE-IN ANIMATION ===== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-header, h1, h2, p, button {
-  animation: fadeIn 1.2s ease forwards;
-}
-
-/* ===== LOGO GLOW ===== */
-#logoImg {
-  filter: drop-shadow(0 0 10px rgba(0,255,127,0.7));
-  transition: 0.3s;
-}
-#logoImg:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 20px rgba(0,255,127,1));
-}
-
-/* ===== SECTION STYLE ===== */
-section {
-  padding: 80px 20px;
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
-  color: #fff;
-}
-
   </style>
 </head>
 <body>
-
-  <header>
-    <div class="nav">
+  <div class="wrap">
+    <header>
       <div class="brand">
-        <!-- Replace path with your logo file -->
-        <img src="assets/logo.png" alt="go.at logo" id="logoImg">
-        <h1>go.atwear</h1>
+        <a href="index.html"><img src="assets/logo.png" alt="go.at logo" /></a>
+        <div class="title">GO.ATWEAR</div>
       </div>
 
-      <nav aria-label="main-navigation">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#collection">Collection</a></li>
-          <li><a href="#ego">Ego Code</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="collection.html">Collection</a>
+        <a href="https://www.instagram.com/p/DMiTw6Zy99U/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">Ego Code</a>
+        <a href="#contact">Contact</a>
+        <a class="btn-shop" href="collection.html">Shop</a>
       </nav>
+    </header>
 
-      <div style="display:flex; gap:10px; align-items:center">
-        <a class="small" href="https://instagram.com/go.atwear" target="_blank">@go.atwear</a>
-        <a class="cta" href="#collection">Shop</a>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="kicker">Built from ego</div>
+        <h1>BOOST YOUR EGO.<br/>RULE THE GAME.</h1>
+        <p class="lead">go.atwear brings bold streetwear to those who lead — not follow. Minimal design, loud attitude. Wear it, own it.</p>
+
+        <div class="cta">
+          <a class="btn btn-green" href="collection.html">Shop the Drop</a>
+          <a class="btn btn-outline" href="https://www.instagram.com/p/DMiTw6Zy99U/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">See the Ego Code</a>
+        </div>
+
+        <div class="grid-feat">
+          <div class="card">
+            <h4>Featured</h4>
+            <p>Built From Ego Tee — Minimal. Bold. Limited drop.</p>
+          </div>
+          <div class="card">
+            <h4>Quality</h4>
+            <p>Premium fabric. Clean cuts. Designed for confidence.</p>
+          </div>
+          <div class="card">
+            <h4>Community</h4>
+            <p>Join the GOAT club — early drops, exclusive collabs.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </header>
 
-  <main id="home">
-    <div class="container">
-      <section class="hero" aria-label="hero section">
-        <div class="hero-left">
-          <h2>Boost your ego.<br>Rule the game.</h2>
-          <p>go.atwear brings bold streetwear to those who lead — not follow. Minimal design, loud attitude. Wear it, own it.</p>
-          <div class="btns">
-            <a class="cta" href="collection.html">Shop Now</a>
-            
-<button class="btn" onclick="window.open('https://www.instagram.com/p/DMiTw6Zy99U/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', '_blank')">
-  See the Ego Code
-</button>
-            
-      <section class="features">
-  <div class="card">
-    <h3>Featured</h3>
-    <p>Built From Ego Tee — Minimal. Bold. Limited drop.</p>
+      <div class="hero-right">
+        <div class="logo-card">
+          <img src="assets/logo.png" alt="go.at logo big" />
+        </div>
+      </div>
+    </section>
+
+    <!-- collection preview -->
+    <section>
+      <h3 style="color:#fff;margin:18px 0 12px 0">Collection preview</h3>
+      <div class="collection-preview">
+        <a class="product" href="collection.html">
+          <img src="assets/shirt1.jpg" alt="shirt1">
+          <h5>Built from Ego Tee — Black</h5>
+        </a>
+        <a class="product" href="collection.html">
+          <img src="assets/shirt2.jpg" alt="shirt2">
+          <h5>Minimal Logo Tee — Olive</h5>
+        </a>
+        <a class="product" href="collection.html">
+          <img src="assets/shirt3.jpg" alt="shirt3">
+          <h5>Street Hoodie — Dark</h5>
+        </a>
+      </div>
+    </section>
+
+    <!-- contact form -->
+    <section id="contact">
+      <h3>Contact</h3>
+      <p class="note">For now drop your message below — we'll set up the full contact backend soon.</p>
+      <form action="#" method="post" onsubmit="alert('Thanks — message captured (local). You can set a real mail handler later'); return false;">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <textarea name="message" placeholder="Your message" rows="5" required></textarea>
+        <div style="display:flex;gap:12px;align-items:center">
+          <button class="btn btn-green" type="submit">Send message</button>
+          <div class="note">Prefer social? DM on <a href="https://www.instagram.com/go.atwear" target="_blank" style="color:var(--neon)">@go.atwear</a></div>
+        </div>
+      </form>
+    </section>
+
+    <footer>
+      © <span id="year"></span> go.atwear — Built from ego · Minimal. Bold. Street-powered.
+    </footer>
+
   </div>
-
-  <div class="card">
-    <h3>Quality</h3>
-    <p>Premium fabric. Clean cuts. Designed for confidence.</p>
-  </div>
-
-  <div class="card">
-    <h3>Community</h3>
-    <p>Join the GOAT club — early drops, exclusive collabs.</p>
-  </div>
-
-  <div class="card">
-    <h3>Attitude</h3>
-    <p>Streetwear that speaks louder than words. Wear your mindset.</p>
-  </div>
-
-  <div class="card">
-    <h3>Minimalism</h3>
-    <p>Clean. Modern. Effortless — crafted for those who lead, not follow.</p>
-  </div>
-</section>
-
-
-      <!-- Ego Code -->
-      <section id="ego" style="position:relative; margin-top:20px;">
-        <div class="watermark">go.at</div>
-        <h2 style="font-family:'Bebas Neue'; font-size:28px; margin:18px 0 8px">The Ego Code</h2>
-        <p class="small" style="margin:0 0 16px">7 bold truths for men who wear confidence like an armor.</p>
-
-        <div class="ego-list">
-          <div class="ego-item"><div class="num">1</div><p><strong>Don’t shrink to fit.</strong> Be too much. Be unapologetic.</p></div>
-          <div class="ego-item"><div class="num">2</div><p><strong>Stop waiting for validation.</strong> Confidence is a solo act.</p></div>
-          <div class="ego-item"><div class="num">3</div><p><strong>Dress like you already made it.</strong> Ego in motion.</p></div>
-          <div class="ego-item"><div class="num">4</div><p><strong>Silence is power.</strong> Let your presence talk.</p></div>
-          <div class="ego-item"><div class="num">5</div><p><strong>Ego isn't arrogance.</strong> It’s knowing your worth and showing it.</p></div>
-          <div class="ego-item"><div class="num">6</div><p><strong>Weak minds follow.</strong> Strong egos lead.</p></div>
-          <div class="ego-item"><div class="num">7</div><p><strong>Own your ego.</strong> Wear it. Live it.</p></div>
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="about" aria-label="about section">
-        <div class="text">
-          <h2 style="font-family:'Bebas Neue'; font-size:26px; margin:0 0 8px">About go.atwear</h2>
-          <p>go.atwear is a men’s streetwear brand made for the confident — those who don’t follow trends but make them. Born from the GOAT mentality, our pieces blend minimal design with bold attitude so you can wear your identity out loud.</p>
-          <p style="margin-top:10px;color:var(--muted)">Mission: Boost confidence through clothing that reflects strength, individuality, and purpose.</p>
-        </div>
-        <div class="art" aria-hidden="true">
-          <img src="assets/logo.png" alt="go.at art" style="max-width:62%; opacity:0.95;">
-        </div>
-      </section>
-
-      <!-- Collection -->
-      <section id="collection" style="margin-top:40px;">
-        <h2 style="font-family:'Bebas Neue'; font-size:26px; margin:6px 0 12px">Collection Preview</h2>
-        <p class="small">Currently: Limited pre-order. Drops every month. Subscribe for early access.</p>
-
-        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px;">
-          <div class="card"><h3>Built from Ego Tee</h3><p class="small">Black/White. Minimal chest logo. ₹999 (preorder)</p></div>
-          <div class="card"><h3>Fearless Hoodie</h3><p class="small">Oversized fit. Neon-lined drawcords. ₹2299 (limited)</p></div>
-          <div class="card"><h3>Alpha Cap</h3><p class="small">Embroidered GOAT badge. One-size. ₹499</p></div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" style="margin-top:38px;">
-        <h2 style="font-family:'Bebas Neue'; font-size:24px; margin:0 0 8px">Contact</h2>
-        <p class="small" style="margin:0 0 14px">Questions, collabs or preorders — drop a message.</p>
-
-        <div style="display:flex; gap:18px; flex-wrap:wrap;">
-          <div style="min-width:260px; flex:1; background:var(--panel); padding:16px; border-radius:10px; border:1px solid rgba(255,255,255,0.02)">
-            <p style="margin:0 0 8px; font-weight:700">Email</p>
-            <p style="margin:0 0 14px; color:var(--muted)">successwithserin@gmail.com</p>
-            <a class="btn primary" href="mailto:successwithserin@gmail.com">Email Now</a>
-          </div>
-
-          <div style="min-width:260px; flex:1; background:var(--panel); padding:16px; border-radius:10px; border:1px solid rgba(255,255,255,0.02)">
-            <p style="margin:0 0 8px; font-weight:700">Instagram</p>
-            <p style="margin:0 0 14px; color:var(--muted)">@go.atwear</p>
-            <a class="btn" href="https://instagram.com/go.atwear" target="_blank">Visit IG</a>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <div class="foot-inner">
-          <div>
-            <div style="display:flex; align-items:center; gap:12px">
-              <img src="assets/logo.png" alt="logo small" style="height:38px; width:38px; object-fit:contain">
-              <div>
-                <div style="font-weight:700">go.atwear</div>
-                <div class="small">Built from ego</div>
-              </div>
-            </div>
-          </div>
-
-          <div style="display:flex; gap:18px; align-items:center">
-            <div class="small">© <span id="year"></span> go.atwear</div>
-            <div class="socials">
-              <a href="https://instagram.com/go.atwear" target="_blank" class="small">Instagram</a>
-              <a href="mailto:successwithserin@gmail.com" class="small">Email</a>
-            </div>
-          </div>
-        </div>
-      </footer>
-
-    </div>
-  </main>
 
   <script>
-    // small helpers
+    // set year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // smooth scroll for internal links
+    // smooth scroll to anchor for same-page links
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', function(e){
+      a.addEventListener('click',function(e){
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+        const id = this.getAttribute('href').substring(1);
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
       });
     });
-
-    // replace logo alt if missing fallback
-    const logo = document.getElementById('logoImg');
-    logo.onerror = ()=> logo.style.display='none';
   </script>
-  <section id="shop-preview" style="padding:80px 20px; text-align:center;">
-  <h2 style="color:#00ff7f; font-size:2em; margin-bottom:10px;">Shop Coming Soon 🛒</h2>
-  <p style="color:#ccc; max-width:600px; margin:auto;">
-    Our first drop — <strong>Built from Ego</strong> tees — is loading.  
-    Minimal. Bold. Limited.  
-  </p>
-  <p style="margin-top:25px;">
-    <a href="https://instagram.com/go.atwear" target="_blank" class="button" 
-    style="background:#00ff7f;color:#000;padding:12px 28px;border-radius:6px;font-weight:600;box-shadow:0 0 12px rgba(0,255,127,0.5);text-decoration:none;">
-      Follow for Drop Alerts
-    </a>
-  </p>
-</section>
-
-<footer style="margin-top: 80px; padding: 40px 0; background:#0a0a0a; text-align:center; color:#aaa;">
-  <h2 style="color:#00ff7f;">Join the GOAT Club 🐐</h2>
-  <p>Early drops. Exclusive ego code. Built for the bold.</p>
-  <a href="https://instagram.com/go.atwear" target="_blank" style="color:#00ff7f; font-weight:600;">Follow @go.atwear</a>
-  <p style="margin-top:20px; font-size:13px; color:#555;">© 2025 go.atwear — Built from ego</p>
-</footer>
-
 </body>
 </html>
