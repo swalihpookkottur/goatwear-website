@@ -1,134 +1,205 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <a href="index.html" 
-   style="position: fixed; top: 20px; left: 20px; 
-          background: #00ff7f; color: #000; 
-          padding: 8px 14px; border-radius: 8px; 
-          font-weight: 600; text-decoration: none; 
-          box-shadow: 0 0 10px rgba(0,255,127,0.6); 
-          transition: 0.3s; z-index: 999;">
-  ← Back to Home
-</a>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>go.atwear | Built from Ego — Collection</title>
-  <link rel="icon" href="assets/favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>go.atwear — Built from ego</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <meta name="description" content="go.atwear — streetwear. Built from ego. Minimal. Bold." />
+
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #000;
-      color: #fff;
+    :root{
+      --bg:#0b0b0b;
+      --panel:#0f0f0f;
+      --neon:#00ff77; /* neon green */
+      --muted:#cfcfcf;
+      --accent:rgba(0,255,119,0.08);
+      --radius:12px;
+      --max:1200px;
     }
-    header {
-      text-align: center;
-      padding: 40px 0 10px 0;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Poppins',system-ui,Arial,sans-serif;
+      background:linear-gradient(180deg,#060606 0%, #0b0b0b 60%);
+      color:var(--muted);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
-    header img {
-      height: 50px;
-      filter: drop-shadow(0 0 8px #00ff7f);
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px}
+    header{
+      display:flex;align-items:center;justify-content:space-between;padding:10px 0;
     }
-    h1 {
-      color: #00ff7f;
-      margin-top: 10px;
-      font-size: 2em;
-    }
-    p {
-      color: #aaa;
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{height:46px;width:46px;object-fit:contain;cursor:pointer}
+    .brand .title{font-weight:800;color:#fff;letter-spacing:1px}
+    nav{display:flex;gap:22px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 6px;border-radius:6px;font-weight:500}
+    nav a:hover{color:#fff;background:rgba(255,255,255,0.02)}
+    .btn-shop{
+      background:var(--neon);color:#061006;padding:8px 16px;border-radius:10px;font-weight:700;border:none;cursor:pointer;
+      box-shadow:0 6px 18px rgba(0,255,119,0.08)
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      max-width: 1000px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
+    /* hero */
+    .hero{display:flex;gap:36px;align-items:center;padding:56px 0}
+    .hero-left{flex:1;min-width:260px}
+    .kicker{color:var(--neon);font-weight:700;margin-bottom:8px}
+    h1{margin:0;font-size:48px;line-height:1;letter-spacing:1px;color:#fff;font-weight:800}
+    p.lead{color:#cfcfcf;opacity:0.9;margin-top:14px;max-width:720px}
 
-    .item {
-      background: #111;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 0 15px rgba(0,255,127,0.2);
-      transition: 0.3s;
-    }
-    .item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 25px rgba(0,255,127,0.5);
-    }
-    .item img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-    }
-    .info {
-      padding: 18px;
-      text-align: center;
-    }
-    .info h3 {
-      margin: 8px 0 4px;
-      color: #fff;
-    }
-    .tag {
-      display: inline-block;
-      background: #00ff7f;
-      color: #000;
-      padding: 4px 10px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.8em;
-    }
-    footer {
-      text-align: center;
-      padding: 40px;
-      background: #0a0a0a;
-      color: #777;
-    }
-    footer a {
-      color: #00ff7f;
-      font-weight: 600;
-      text-decoration: none;
+    .cta{display:flex;gap:14px;margin-top:22px}
+    .btn{background:#0b0b0b;border:1px solid rgba(255,255,255,0.03);padding:12px 20px;border-radius:12px;color:#fff;font-weight:600;cursor:pointer}
+    .btn-outline{background:transparent;border:1px solid rgba(0,255,119,0.18);color:var(--neon)}
+    .btn-green{background:linear-gradient(90deg,var(--neon),#24ff9b);color:#061006;padding:12px 20px;border-radius:12px;border:none;font-weight:700}
+
+    /* features + big logo */
+    .hero-right{width:360px;display:flex;justify-content:center}
+    .logo-card{background:linear-gradient(180deg,#0b0b0b,#0f0f0f);border-radius:16px;padding:24px;width:320px;height:320px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,0.6)}
+    .logo-card img{max-width:240px;max-height:240px;object-fit:contain}
+
+    .grid-feat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;color:#ddd}
+    .card h4{margin:0 0 8px 0;color:#fff}
+    .card p{margin:0;font-size:14px;color:#cfcfcf;opacity:0.9}
+
+    /* collection preview */
+    .collection-preview{margin-top:42px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+    .product{background:linear-gradient(180deg,#0c0c0c,#070707);border-radius:12px;padding:12px;display:flex;flex-direction:column;align-items:center}
+    .product img{width:100%;border-radius:8px;object-fit:cover;height:160px}
+    .product h5{margin:10px 0 0 0;color:#fff;font-size:16px}
+
+    footer{margin:40px 0 80px;color:#999;text-align:center;font-size:14px;padding-bottom:50px}
+
+    /* contact */
+    #contact{margin-top:48px;padding:28px;background:rgba(0,0,0,0.2);border-radius:12px}
+    #contact h3{color:#fff;margin:0 0 12px 0}
+    form{display:flex;flex-direction:column;gap:12px;max-width:640px}
+    input,textarea{background:#0b0b0b;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:8px;color:#fff}
+    input::placeholder,textarea::placeholder{color:#9b9b9b}
+    .note{font-size:13px;color:#a9a9a9}
+
+    /* responsive */
+    @media (max-width:920px){
+      .hero{flex-direction:column-reverse}
+      .hero-right{width:100%}
+      .grid-feat{grid-template-columns:repeat(1,1fr)}
+      .wrap{padding:18px}
+      h1{font-size:36px}
+      .logo-card{width:240px;height:240px}
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <a href="index.html"><img src="assets/logo.png" alt="go.at logo" /></a>
-    <h1>Built from Ego Drop</h1>
-    <p>Minimal. Bold. Loud attitude.</p>
-  </header>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <a href="index.html"><img src="assets/logo.png" alt="go.at logo" /></a>
+        <div class="title">GO.ATWEAR</div>
+      </div>
 
-  <section class="grid">
-    <div class="item">
-      <img src="assets/shirt1.png" alt="Built from Ego Tee">
-      <div class="info">
-        <h3>Built from Ego Tee</h3>
-        <span class="tag">Coming Soon</span>
-      </div>
-    </div>
-    <div class="item">
-      <img src="assets/shirt2.png" alt="Fearless Drop Hoodie">
-      <div class="info">
-        <h3>Fearless Drop Hoodie</h3>
-        <span class="tag">Coming Soon</span>
-      </div>
-    </div>
-    <div class="item">
-      <img src="assets/shirt3.png" alt="Rule the Game Tee">
-      <div class="info">
-        <h3>Rule the Game Tee</h3>
-        <span class="tag">Coming Soon</span>
-      </div>
-    </div>
-  </section>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="collection.html">Collection</a>
+        <a href="https://www.instagram.com/p/DMiTw6Zy99U/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener">Ego Code</a>
+        <a href="#contact">Contact</a>
+        <a class="btn-shop" href="collection.html">Shop</a>
+      </nav>
+    </header>
 
-  <footer>
-    <p>Join the <a href="https://instagram.com/go.atwear" target="_blank">GOAT Club</a> for exclusive updates.</p>
-    <p>© 2025 go.atwear — Built from ego</p>
-  </footer>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="kicker">Built from ego</div>
+        <h1>BOOST YOUR EGO.<br/>RULE THE GAME.</h1>
+        <p class="lead">go.atwear brings bold streetwear to those who lead — not follow. Minimal design, loud attitude. Wear it, own it.</p>
+
+        <div class="cta">
+          <a class="btn btn-green" href="collection.html">Shop the Drop</a>
+          <a class="btn btn-outline" href="https://www.instagram.com/p/DMiTw6Zy99U/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">See the Ego Code</a>
+        </div>
+
+        <div class="grid-feat">
+          <div class="card">
+            <h4>Featured</h4>
+            <p>Built From Ego Tee — Minimal. Bold. Limited drop.</p>
+          </div>
+          <div class="card">
+            <h4>Quality</h4>
+            <p>Premium fabric. Clean cuts. Designed for confidence.</p>
+          </div>
+          <div class="card">
+            <h4>Community</h4>
+            <p>Join the GOAT club — early drops, exclusive collabs.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="logo-card">
+          <img src="assets/logo.png" alt="go.at logo big" />
+        </div>
+      </div>
+    </section>
+
+    <!-- collection preview -->
+    <section>
+      <h3 style="color:#fff;margin:18px 0 12px 0">Collection preview</h3>
+      <div class="collection-preview">
+        <a class="product" href="collection.html">
+          <img src="assets/shirt1.jpg" alt="shirt1">
+          <h5>Built from Ego Tee — Black</h5>
+        </a>
+        <a class="product" href="collection.html">
+          <img src="assets/shirt2.jpg" alt="shirt2">
+          <h5>Minimal Logo Tee — Olive</h5>
+        </a>
+        <a class="product" href="collection.html">
+          <img src="assets/shirt3.jpg" alt="shirt3">
+          <h5>Street Hoodie — Dark</h5>
+        </a>
+      </div>
+    </section>
+
+    <!-- contact form -->
+    <section id="contact">
+      <h3>Contact</h3>
+      <p class="note">For now drop your message below — we'll set up the full contact backend soon.</p>
+      <form action="#" method="post" onsubmit="alert('Thanks — message captured (local). You can set a real mail handler later'); return false;">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <textarea name="message" placeholder="Your message" rows="5" required></textarea>
+        <div style="display:flex;gap:12px;align-items:center">
+          <button class="btn btn-green" type="submit">Send message</button>
+          <div class="note">Prefer social? DM on <a href="https://www.instagram.com/go.atwear" target="_blank" style="color:var(--neon)">@go.atwear</a></div>
+        </div>
+      </form>
+    </section>
+
+    <footer>
+      © <span id="year"></span> go.atwear — Built from ego · Minimal. Bold. Street-powered.
+    </footer>
+
+  </div>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // smooth scroll to anchor for same-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',function(e){
+        e.preventDefault();
+        const id = this.getAttribute('href').substring(1);
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+  </script>
 </body>
 </html>
