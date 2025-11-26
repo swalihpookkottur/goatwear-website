@@ -9,7 +9,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <meta name="description" content="go.atwear — streetwear. Built from ego. Minimal. Bold." />
-
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("Fa_Nfj_fbcMRavLwV"); // PUBLIC KEY
+  })();
+</script>
   <style>
     :root{
       --bg:#0b0b0b;
@@ -76,12 +82,22 @@
     footer{margin:40px 0 80px;color:#999;text-align:center;font-size:14px;padding-bottom:50px}
 
     /* contact */
-    #contact{margin-top:48px;padding:28px;background:rgba(0,0,0,0.2);border-radius:12px}
-    #contact h3{color:#fff;margin:0 0 12px 0}
-    form{display:flex;flex-direction:column;gap:12px;max-width:640px}
-    input,textarea{background:#0b0b0b;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:8px;color:#fff}
-    input::placeholder,textarea::placeholder{color:#9b9b9b}
-    .note{font-size:13px;color:#a9a9a9}
+  <section id="contact">
+  <h3>Contact</h3>
+  <p class="note">
+    Enquiries, collabs, orders – send us a message. We’ll reply on your email.
+  </p>
+
+  <form id="contact-form">
+    <input type="text" name="from_name" placeholder="Your name" required />
+    <input type="email" name="from_email" placeholder="Your email" required />
+    <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+
+    <button class="btn btn-green" type="submit">Send message</button>
+  </form>
+
+  <p id="contact-status" class="note" style="margin-top:10px;"></p>
+</section>
 
     /* responsive */
     @media (max-width:920px){
@@ -201,5 +217,30 @@
       });
     });
   </script>
+<script>
+  const contactForm  = document.getElementById('contact-form');
+  const statusText   = document.getElementById('contact-status');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      statusText.textContent = "Sending...";
+      statusText.style.color = "#cccccc";
+
+      emailjs.sendForm("service_hemo4aq", "template_ggr00l1", this)
+        .then(function () {
+          statusText.textContent = "Message sent successfully. We’ll get back to you soon.";
+          statusText.style.color = "#00ff77";
+          contactForm.reset();
+        }, function (error) {
+          console.error("EmailJS error:", error);
+          statusText.textContent = "Something went wrong. Please try again later.";
+          statusText.style.color = "#ff5555";
+        });
+    });
+  }
+</script>
+
 </body>
 </html>
