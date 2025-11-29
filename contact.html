@@ -1,100 +1,235 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="go.atwear — streetwear. Built from ego. Minimal. Bold." />
   <title>Contact — go.atwear</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
   <style>
-    :root{--bg:#060606;--muted:#cfcfcf;--neon:#00ff77}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Poppins',sans-serif;background:linear-gradient(180deg,#050505,#0b0b0b);color:var(--muted)}
-    .wrap{max-width:1100px;margin:0 auto;padding:28px}
-    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
-    header img{height:44px}
-    .btn-back{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:10px;color:#fff}
-    h1{color:#fff;margin:20px 0 12px 0}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
-    .item{background:linear-gradient(180deg,#0b0b0b,#0f0f0f);padding:12px;border-radius:14px;display:flex;flex-direction:column;gap:10px;align-items:center}
-    .item img{width:100%;height:260px;object-fit:cover;border-radius:10px}
-    .price{color:var(--neon);font-weight:700}
-    .buy{background:var(--neon);color:#051006;padding:10px 16px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
-    footer{margin-top:40px;text-align:center;color:#9b9b9b}
+    /* --- CSS Variables & Global Resets --- */
+    :root {
+      --bg: #0b0b0b;
+      --panel: #0f0f0f;
+      --neon: #00ff77; /* neon green */
+      --muted: #cfcfcf;
+      --accent: rgba(0, 255, 119, 0.08);
+      --radius: 12px;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, Arial, sans-serif;
+      background: linear-gradient(180deg, #060606 0%, #0b0b0b 60%);
+      color: var(--muted);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    /* --- Header & Navigation --- */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding: 10px 0;
+    }
+
+    header img {
+      height: 44px;
+    }
+
+    .btn-back {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 10px 14px;
+      border-radius: 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand img {
+      height: 46px;
+      width: 46px;
+      object-fit: contain;
+      cursor: pointer;
+    }
+
+    .brand .title {
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px 6px;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* --- Buttons & Items --- */
+    .btn-shop {
+      background: var(--neon);
+      color: #061006;
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0, 255, 119, 0.08);
+    }
+
+    /* Included for compatibility with existing classes */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .item {
+      background: linear-gradient(180deg, #0b0b0b, #0f0f0f);
+      padding: 12px;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .item img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .price {
+      color: var(--neon);
+      font-weight: 700;
+    }
+
+    .buy {
+      background: var(--neon);
+      color: #051006;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* --- Contact Form Section --- */
+    #contact {
+      margin-top: 48px;
+    }
+
+    #contact h3 {
+      color: #fff;
+      margin-bottom: 8px;
+      font-size: 1.5rem;
+    }
+
+    .note {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    #contact form {
+      max-width: 460px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #contact input,
+    #contact textarea {
+      width: 100%;
+      background: #050505;
+      border-radius: 10px;
+      border: 1px solid #222;
+      padding: 10px 12px;
+      color: #fff;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    #contact input:focus,
+    #contact textarea:focus {
+      outline: none;
+      border-color: var(--neon);
+      box-shadow: 0 0 0 1px rgba(0, 255, 119, 0.3);
+    }
+    
+    /* Added specifically for the form button in your HTML */
+    .btn-green {
+      background: var(--neon);
+      color: #051006;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* --- Footer --- */
+    footer {
+      margin: 40px 0 80px;
+      color: #999;
+      text-align: center;
+      font-size: 14px;
+      padding-bottom: 50px;
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
+    
     <header>
       <a href="index.html"><img src="assets/logo.png" alt="logo"></a>
       <a class="btn-back" href="index.html">← Back to home</a>
     </header>
-      <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-  <meta name="description" content="go.atwear — streetwear. Built from ego. Minimal. Bold." />
-
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
- <style>
-    :root{
-      --bg:#0b0b0b;
-      --panel:#0f0f0f;
-      --neon:#00ff77; /* neon green */
-      --muted:#cfcfcf;
-      --accent:rgba(0,255,119,0.08);
-      --radius:12px;
-      --max:1200px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:'Poppins',system-ui,Arial,sans-serif;
-      background:linear-gradient(180deg,#060606 0%, #0b0b0b 60%);
-      color:var(--muted);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-    .wrap{max-width:var(--max);margin:0 auto;padding:28px}
-    header{
-      display:flex;align-items:center;justify-content:space-between;padding:10px 0;
-    }
-    .brand{display:flex;align-items:center;gap:14px}
-    .brand img{height:46px;width:46px;object-fit:contain;cursor:pointer}
-    .brand .title{font-weight:800;color:#fff;letter-spacing:1px}
-    nav{display:flex;gap:22px;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;padding:8px 6px;border-radius:6px;font-weight:500}
-    nav a:hover{color:#fff;background:rgba(255,255,255,0.02)}
-    .btn-shop{
-      background:var(--neon);color:#061006;padding:8px 16px;border-radius:10px;font-weight:700;border:none;cursor:pointer;
-      box-shadow:0 6px 18px rgba(0,255,119,0.08)
-    }
-       /* contact */
-    #contact{margin-top:48px}
-    #contact h3{color:#fff;margin-bottom:8px}
-    .note{font-size:14px;color:var(--muted);margin-bottom:14px}
-    #contact form{max-width:460px;display:flex;flex-direction:column;gap:10px}
-    #contact input,
-    #contact textarea{
-      width:100%;
-      background:#050505;
-      border-radius:10px;
-      border:1px solid #222;
-      padding:10px 12px;
-      color:#fff;
-      font-family:inherit;
-      resize:vertical;
-    }
-    #contact input:focus,
-    #contact textarea:focus{
-      outline:none;
-      border-color:var(--neon);
-      box-shadow:0 0 0 1px rgba(0,255,119,0.3);
-    }
-
-    footer{margin:40px 0 80px;color:#999;text-align:center;font-size:14px;padding-bottom:50px}
-   
-      <!-- contact form -->
     <section id="contact">
       <h3>Contact</h3>
       <p class="note">
@@ -110,6 +245,7 @@
       </form>
 
       <p id="contact-status" class="note" style="margin-top:10px;"></p>
+      
       <p class="note">
         Prefer social? DM on
         <a href="https://www.instagram.com/go.atwear" target="_blank" style="color:var(--neon)">@go.atwear</a>
@@ -123,6 +259,11 @@
   </div>
 
   <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+<script>
     // set year
     document.getElementById('year').textContent = new Date().getFullYear();
 
