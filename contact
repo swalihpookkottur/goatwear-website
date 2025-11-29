@@ -1,0 +1,80 @@
+  <!-- contact form -->
+    <section id="contact">
+      <h3>Contact</h3>
+      <p class="note">
+        Enquiries, collabs, orders – send us a message. We’ll reply on your email.
+      </p>
+
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+
+        <button class="btn btn-green" type="submit">Send message</button>
+      </form>
+
+      <p id="contact-status" class="note" style="margin-top:10px;"></p>
+      <p class="note">
+        Prefer social? DM on
+        <a href="https://www.instagram.com/go.atwear" target="_blank" style="color:var(--neon)">@go.atwear</a>
+      </p>
+    </section>
+
+    <footer>
+      © <span id="year"></span> go.atwear — Built from ego · Minimal. Bold. Street-powered.
+    </footer>
+
+  </div>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // smooth scroll to anchor for same-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',function(e){
+        e.preventDefault();
+        const id = this.getAttribute('href').substring(1);
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+
+    // EmailJS init
+    emailjs.init("Fa_Nfj_fbcMRavLwV");
+
+    const contactForm = document.getElementById("contact-form");
+    const statusText  = document.getElementById("contact-status");
+
+    if (contactForm) {
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = {
+          name: contactForm.name.value,
+          email: contactForm.email.value,
+          message: contactForm.message.value
+        };
+
+        statusText.textContent = "Sending...";
+        statusText.style.color = "#cfcfcf";
+
+        emailjs
+          .send("service_hemo4aq", "template_ggr00l1", formData)
+          .then(() => {
+            statusText.textContent =
+              "Message received. We’ll reply to your mail shortly.";
+            statusText.style.color = "#00ff77";
+            contactForm.reset();
+          })
+          .catch((error) => {
+            console.error("EmailJS error:", error);
+            statusText.textContent = "Something went wrong. Try again.";
+            statusText.style.color = "#ff4444";
+            alert("EmailJS error: " + (error.text || JSON.stringify(error)));
+          });
+      });
+    }
+  </script>
+</body>
+</html>
