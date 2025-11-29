@@ -35,7 +35,65 @@
 
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  
+ <style>
+    :root{
+      --bg:#0b0b0b;
+      --panel:#0f0f0f;
+      --neon:#00ff77; /* neon green */
+      --muted:#cfcfcf;
+      --accent:rgba(0,255,119,0.08);
+      --radius:12px;
+      --max:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Poppins',system-ui,Arial,sans-serif;
+      background:linear-gradient(180deg,#060606 0%, #0b0b0b 60%);
+      color:var(--muted);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px}
+    header{
+      display:flex;align-items:center;justify-content:space-between;padding:10px 0;
+    }
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{height:46px;width:46px;object-fit:contain;cursor:pointer}
+    .brand .title{font-weight:800;color:#fff;letter-spacing:1px}
+    nav{display:flex;gap:22px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 6px;border-radius:6px;font-weight:500}
+    nav a:hover{color:#fff;background:rgba(255,255,255,0.02)}
+    .btn-shop{
+      background:var(--neon);color:#061006;padding:8px 16px;border-radius:10px;font-weight:700;border:none;cursor:pointer;
+      box-shadow:0 6px 18px rgba(0,255,119,0.08)
+    }
+       /* contact */
+    #contact{margin-top:48px}
+    #contact h3{color:#fff;margin-bottom:8px}
+    .note{font-size:14px;color:var(--muted);margin-bottom:14px}
+    #contact form{max-width:460px;display:flex;flex-direction:column;gap:10px}
+    #contact input,
+    #contact textarea{
+      width:100%;
+      background:#050505;
+      border-radius:10px;
+      border:1px solid #222;
+      padding:10px 12px;
+      color:#fff;
+      font-family:inherit;
+      resize:vertical;
+    }
+    #contact input:focus,
+    #contact textarea:focus{
+      outline:none;
+      border-color:var(--neon);
+      box-shadow:0 0 0 1px rgba(0,255,119,0.3);
+    }
+
+    footer{margin:40px 0 80px;color:#999;text-align:center;font-size:14px;padding-bottom:50px}
+   
       <!-- contact form -->
     <section id="contact">
       <h3>Contact</h3>
