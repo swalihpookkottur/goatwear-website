@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>go.atwear — Built from ego</title>
 
-  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <meta name="description" content="go.atwear — streetwear. Built from ego. Minimal. Bold." />
 
-  <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
   <style>
@@ -34,18 +32,44 @@
       -moz-osx-font-smoothing:grayscale;
     }
     .wrap{max-width:var(--max);margin:0 auto;padding:28px}
+    
+    /* Header Styles */
     header{
       display:flex;align-items:center;justify-content:space-between;padding:10px 0;
+      position: relative; /* Needed for mobile menu positioning */
+      z-index: 100;
     }
-    .brand{display:flex;align-items:center;gap:14px}
+    .brand{display:flex;align-items:center;gap:14px; z-index: 101;}
     .brand img{height:46px;width:46px;object-fit:contain;cursor:pointer}
     .brand .title{font-weight:800;color:#fff;letter-spacing:1px}
+    
+    /* Desktop Nav */
     nav{display:flex;gap:22px;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;padding:8px 6px;border-radius:6px;font-weight:500}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 6px;border-radius:6px;font-weight:500; transition: 0.3s;}
     nav a:hover{color:#fff;background:rgba(255,255,255,0.02)}
     .btn-shop{
       background:var(--neon);color:#061006;padding:8px 16px;border-radius:10px;font-weight:700;border:none;cursor:pointer;
       box-shadow:0 6px 18px rgba(0,255,119,0.08)
+    }
+
+    /* Mobile Menu Toggle (Hidden on Desktop) */
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 10px;
+      z-index: 101;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      border-radius: 3px;
+      transition: all 0.3s ease;
     }
 
     /* hero */
@@ -98,12 +122,57 @@
 
     /* responsive */
     @media (max-width:920px){
+      .wrap{padding:18px}
+      
+      /* Mobile Navigation Logic */
+      .menu-toggle { display: flex; }
+      
+      nav {
+        display: none; /* Hide nav by default on mobile */
+        position: absolute;
+        top: 70px; /* Push below header */
+        left: 0;
+        width: 100%;
+        background: #0f0f0f;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid #222;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.9);
+        gap: 15px;
+      }
+
+      /* Class to show nav when toggled */
+      nav.active {
+        display: flex;
+        animation: slideDown 0.3s ease-out forwards;
+      }
+      
+      nav a {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        background: rgba(255,255,255,0.03);
+      }
+      
+      .btn-shop { width: 100%; text-align: center; }
+
+      /* Hamburger Animation (Turn to X) */
+      .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); background: var(--neon); }
+      .menu-toggle.open span:nth-child(2) { opacity: 0; }
+      .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); background: var(--neon); }
+
+      /* Existing Responsive Styles */
       .hero{flex-direction:column-reverse}
       .hero-right{width:100%}
       .grid-feat{grid-template-columns:repeat(1,1fr)}
-      .wrap{padding:18px}
       h1{font-size:36px}
       .logo-card{width:240px;height:240px}
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -115,7 +184,13 @@
         <div class="title">GO.ATWEAR</div>
       </div>
 
-      <nav>
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="navbar">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="collection.html">Collection</a>
@@ -125,7 +200,6 @@
       </nav>
     </header>
 
-    <!-- HERO -->
     <section class="hero">
       <div class="hero-left">
         <div class="kicker">Built from ego</div>
@@ -162,7 +236,6 @@
 
 
 
-    <!-- contact form -->
     <section id="contact">
       <h3>Contact</h3>
       <p class="note">
@@ -204,6 +277,23 @@
       });
     });
 
+    // --- MOBILE MENU TOGGLE LOGIC ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('navbar');
+
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      menuToggle.classList.toggle('open');
+    });
+    // Close menu when a link is clicked
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        menuToggle.classList.remove('open');
+      });
+    });
+    // ---------------------------------
+
     // EmailJS init
     emailjs.init("Fa_Nfj_fbcMRavLwV");
 
@@ -241,4 +331,4 @@
     }
   </script>
 </body>
-</html>    
+</html>
