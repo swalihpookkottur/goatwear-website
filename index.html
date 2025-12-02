@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>go.atwear — Built from ego</title>
 
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <meta name="description" content="go.atwear — streetwear. Built from ego. Minimal. Bold." />
@@ -20,7 +22,7 @@
       --accent:rgba(0,255,119,0.08);
       --radius:12px;
       --max:1200px;
-      --header-height: 76px; /* Define header height for spacing */
+      --header-height: 76px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -31,7 +33,7 @@
       color:var(--muted);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      padding-top: var(--header-height); /* Push content down so it's not hidden behind fixed header */
+      padding-top: var(--header-height);
     }
     
     .wrap{
@@ -42,21 +44,20 @@
     
     /* --- PINNED HEADER STYLES --- */
     header {
-      position: fixed;        /* Pins the header */
+      position: fixed;
       top: 0;
       left: 0;
-      width: 100%;            /* Full width */
-      z-index: 1000;          /* Stays on top of everything */
-      background: rgba(6, 6, 6, 0.9); /* Semi-transparent dark bg */
-      backdrop-filter: blur(10px);    /* Blur effect (Glassmorphism) */
-      border-bottom: 1px solid rgba(255,255,255,0.05); /* Subtle border */
+      width: 100%;
+      z-index: 1000;
+      background: rgba(6, 6, 6, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-    /* Inner container to align logo/menu with the rest of the page width */
     .header-inner {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 12px 28px;     /* Matches .wrap padding */
+      padding: 12px 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -76,7 +77,7 @@
       box-shadow:0 6px 18px rgba(0,255,119,0.08)
     }
 
-    /* Mobile Menu Toggle (Hidden on Desktop) */
+    /* Mobile Menu Toggle */
     .menu-toggle {
       display: none;
       background: transparent;
@@ -146,7 +147,6 @@
 
     /* responsive */
     @media (max-width:920px){
-      /* Adjust padding for mobile */
       .wrap{padding:18px} 
       .header-inner{padding: 12px 18px;}
 
@@ -154,9 +154,9 @@
       .menu-toggle { display: flex; }
       
       nav {
-        display: none; /* Hide nav by default on mobile */
-        position: fixed; /* Fixed to the viewport */
-        top: var(--header-height); /* Start exactly below the header */
+        display: none;
+        position: fixed;
+        top: var(--header-height);
         left: 0;
         width: 100%;
         background: rgba(15, 15, 15, 0.98);
@@ -169,7 +169,6 @@
         height: auto;
       }
 
-      /* Class to show nav when toggled */
       nav.active {
         display: flex;
         animation: slideDown 0.3s ease-out forwards;
@@ -185,12 +184,10 @@
       
       .btn-shop { width: 100%; text-align: center; }
 
-      /* Hamburger Animation (Turn to X) */
       .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); background: var(--neon); }
       .menu-toggle.open span:nth-child(2) { opacity: 0; }
       .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); background: var(--neon); }
 
-      /* Existing Responsive Styles */
       .hero{flex-direction:column-reverse}
       .hero-right{width:100%}
       .grid-feat{grid-template-columns:repeat(1,1fr)}
@@ -299,7 +296,7 @@
     // set year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // smooth scroll to anchor for same-page links
+    // smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',function(e){
         e.preventDefault();
@@ -309,7 +306,7 @@
       });
     });
 
-    // --- MOBILE MENU TOGGLE LOGIC ---
+    // Mobile Menu Toggle Logic
     const menuToggle = document.querySelector('.menu-toggle');
     const nav = document.getElementById('navbar');
 
@@ -317,14 +314,13 @@
       nav.classList.toggle('active');
       menuToggle.classList.toggle('open');
     });
-    // Close menu when a link is clicked
+
     nav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         nav.classList.remove('active');
         menuToggle.classList.remove('open');
       });
     });
-    // ---------------------------------
 
     // EmailJS init
     emailjs.init("Fa_Nfj_fbcMRavLwV");
