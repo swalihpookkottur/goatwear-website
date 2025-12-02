@@ -7,6 +7,7 @@
 
   <link rel="icon" type="image/png" href="assets/logo.png">
   <link rel="apple-touch-icon" href="assets/logo.png">
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <meta name="description" content="go.atwear — streetwear. Built from ego. Minimal. Bold." />
@@ -17,9 +18,13 @@
     :root{
       --bg:#0b0b0b;
       --panel:#0f0f0f;
-      --neon:#00ff77; /* neon green */
+      
+      /* --- UPDATED COLOR HERE --- */
+      --neon:#06aa51;  /* Your specific green */
+      /* -------------------------- */
+      
       --muted:#cfcfcf;
-      --accent:rgba(0,255,119,0.08);
+      --accent:rgba(6, 170, 81, 0.15); /* Updated accent transparency */
       --radius:12px;
       --max:1200px;
       --header-height: 76px;
@@ -72,9 +77,16 @@
     nav{display:flex;gap:22px;align-items:center}
     nav a{color:var(--muted);text-decoration:none;padding:8px 6px;border-radius:6px;font-weight:500; transition: 0.3s;}
     nav a:hover{color:#fff;background:rgba(255,255,255,0.02)}
+    
     .btn-shop{
-      background:var(--neon);color:#061006;padding:8px 16px;border-radius:10px;font-weight:700;border:none;cursor:pointer;
-      box-shadow:0 6px 18px rgba(0,255,119,0.08)
+      background:var(--neon);
+      color:#fff; /* Changed text to white for better contrast on dark green */
+      padding:8px 16px;
+      border-radius:10px;
+      font-weight:700;
+      border:none;
+      cursor:pointer;
+      box-shadow:0 6px 18px rgba(6, 170, 81, 0.25); /* Updated shadow color */
     }
 
     /* Mobile Menu Toggle */
@@ -106,8 +118,21 @@
 
     .cta{display:flex;gap:14px;margin-top:22px}
     .btn{background:#0b0b0b;border:1px solid rgba(255,255,255,0.03);padding:12px 20px;border-radius:12px;color:#fff;font-weight:600;cursor:pointer}
-    .btn-outline{background:transparent;border:1px solid rgba(0,255,119,0.18);color:var(--neon)}
-    .btn-green{background:linear-gradient(90deg,var(--neon),#24ff9b);color:#061006;padding:12px 20px;border-radius:12px;border:none;font-weight:700}
+    
+    .btn-outline{
+        background:transparent;
+        border:1px solid var(--neon); /* Use the variable */
+        color:var(--neon);
+    }
+    
+    .btn-green{
+        background:linear-gradient(90deg,var(--neon),#0fd66a); /* Gradient using new green */
+        color:#fff; /* White text looks better on dark green */
+        padding:12px 20px;
+        border-radius:12px;
+        border:none;
+        font-weight:700;
+    }
 
     /* features + big logo */
     .hero-right{width:360px;display:flex;justify-content:center}
@@ -140,7 +165,7 @@
     #contact textarea:focus{
       outline:none;
       border-color:var(--neon);
-      box-shadow:0 0 0 1px rgba(0,255,119,0.3);
+      box-shadow:0 0 0 1px rgba(6, 170, 81, 0.3); /* Updated focus shadow */
     }
 
     footer{margin:40px 0 80px;color:#999;text-align:center;font-size:14px;padding-bottom:50px}
@@ -346,7 +371,7 @@
           .then(() => {
             statusText.textContent =
               "Message received. We’ll reply to your mail shortly.";
-            statusText.style.color = "#00ff77";
+            statusText.style.color = "#06aa51"; /* Updated status color */
             contactForm.reset();
           })
           .catch((error) => {
